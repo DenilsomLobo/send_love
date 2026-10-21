@@ -1,0 +1,16 @@
+{
+  "male": {
+    "columns": 4,
+    "rows": 3,
+    "cell": 512,
+    "baseline": 500,
+    "frames": 12
+  },
+  "female": {
+    "columns": 4,
+    "rows": 3,
+    "cell": 512,
+    "baseline": 500,
+    "frames": 12
+  }
+}

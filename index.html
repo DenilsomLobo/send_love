@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#253e28" />
+  <meta name="description" content="Uma carta, duas árvores e um amor que encontra o caminho. Puxe, mire e envie amor pela floresta!" />
+  <title>Send Love — Cartas pela floresta</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='52'%3E💌%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <canvas id="game" aria-label="Send Love. Arraste a floresta para procurar o alvo. Puxe o avião para trás e solte para lançar."></canvas>
+  <header class="topbar"><button class="brand icon-button" id="brand" aria-label="Menu do jogo" title="Menu">⌂</button><div class="top-actions"><button id="fullscreen" class="icon-button" aria-label="Tela cheia" title="Tela cheia">⛶</button><button id="sound" class="icon-button" aria-label="Ativar som" title="Som">♫</button><button id="pause" class="icon-button" aria-label="Pausar jogo" hidden>Ⅱ</button></div></header>
+  <main id="menu" class="menu">
+    <section id="title-screen" class="title-screen">
+      <div class="game-logo"><span class="logo-envelope">💌</span><h1><span>Send</span> Love</h1><p>O amor sempre encontra um caminho.</p></div>
+      <div class="title-buttons"><button id="play-button" class="primary big-play">JOGAR <span>▶</span></button><div class="title-secondary"><button id="tutorial-button" class="wood-button">? Como jogar</button><button id="ranking-button" class="wood-button">♛ Ranking</button></div></div>
+      <p class="title-tip">Puxe, mire e mande uma carta de amor!</p><span class="version">v0.2 · Cartas pela floresta</span>
+    </section>
+    <section id="setup-screen" class="setup-screen parchment" hidden>
+      <button id="back-title" class="panel-close" aria-label="Voltar">×</button><span class="eyebrow">ANTES DA PRIMEIRA CARTA…</span><h2>Quem vai enviar amor?</h2>
+      <form id="player-form">
+        <label for="name">Seu nome</label><div class="input-wrap"><input id="name" name="name" maxlength="16" minlength="2" autocomplete="nickname" placeholder="Toque para escrever" required><button type="button" id="keyboard-toggle" aria-label="Abrir teclado virtual" title="Teclado virtual">⌨</button></div>
+        <fieldset><legend>Escolha seu esquilo</legend><div class="characters">
+          <button type="button" class="character selected" data-character="male" aria-pressed="true"><span class="check">✓</span><img src="/assets/game/male-portrait.webp" alt="Esquilo com boné e moletom vermelho"><strong>Esquilo</strong></button>
+          <button type="button" class="character" data-character="female" aria-pressed="false"><span class="check">✓</span><img src="/assets/game/female-portrait.webp" alt="Esquila com flor e vestido amarelo"><strong>Esquila</strong></button>
+        </div></fieldset><p id="form-error" class="error" role="alert"></p><button class="primary start" type="submit">Começar aventura ▶</button>
+      </form><p class="setup-note">Três cartas. Uma floresta inteira. Muito amor.</p>
+    </section>
+  </main>
+  <div id="hud" hidden>
+    <div class="hud-stats"><div><small>ENDEREÇO</small><strong id="phase-label">Fase 01</strong></div><div><small>ENTREGUES</small><strong id="score-label">0 <span>♥</span></strong></div><div><small>SUAS CARTAS</small><strong id="attempt-label">✉ ✉ ✉</strong></div></div>
+    <div id="phase-banner" hidden><span id="banner-title"></span><small id="banner-subtitle"></small></div>
+    <div id="tutorial-panel" class="tutorial-panel" hidden><span id="tutorial-step"></span><p id="tutorial-copy"></p><button id="skip-tutorial">Pular treino →</button></div>
+    <div id="hint" class="hint" role="status">Arraste a floresta para encontrar seu amor.</div>
+    <div class="game-bottom"><button id="home-camera" class="wood-button">◀ Meu galho</button><div id="power" hidden><span>FORÇA <b id="power-number">0%</b></span><meter min="0" max="100" value="0"></meter><button id="cancel-aim">Cancelar</button></div><button id="target-camera" class="wood-button">Encontrar meu amor ▶</button></div>
+    <div id="orientation-tip" hidden>↻ Experimente girar o aparelho para ver melhor a floresta.</div>
+  </div>
+  <dialog id="modal"><div id="modal-content"></div></dialog>
+  <dialog id="keyboard-dialog" class="keyboard-dialog"><div class="keyboard-heading"><div><small>SEU NOME NO CORREIO</small><strong id="keyboard-preview"></strong></div><button id="keyboard-close" class="icon-button" aria-label="Fechar teclado">×</button></div><div id="keyboard-keys"></div><div class="keyboard-controls"><button data-key="clear">Limpar</button><button data-key="space">Espaço</button><button data-key="back">⌫</button><button data-key="done" class="primary">Confirmar ✓</button></div></dialog>
+  <div id="loading" hidden><span class="loading-heart">♥</span><strong>Preparando suas cartas…</strong><small>A floresta está quase pronta.</small></div>
+  <div id="toast" role="status" hidden></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
