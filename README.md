@@ -165,6 +165,4 @@ Conheça outros projetos de **Denilsom Lobo**:
 
 ## Jogue no navegador
 
-**Link do jogo:** _Em breve — espaço reservado para adicionar o endereço do Send Love publicado._
-
-<!-- Após publicar, substitua a frase acima por: [Jogar Send Love](URL_DO_JOGO) -->
+**Link do jogo:** [Jogar Send Love](https://portifolio-denilsom-lobo.web.app/games/send_love/play/)
